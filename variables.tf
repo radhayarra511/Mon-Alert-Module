@@ -7,10 +7,6 @@ variable "project_id" {
   type        = string
   description = "(Required) The ID of the project in which the resource belongs. If it is not provided, the provider project is used."
 }
-variable "id" {
-  type        = string
-  description = "(Required) The ID of the alert in which the resource belongs. If it is not provided, the provider project is used."
-}
 
 variable "combiner" {
   type        = string
