@@ -1,7 +1,7 @@
-output "self_link" {
+/*output "self_link" {
   value       = google_monitoring_alert_policy.alert_policy.self_link
   description = "URI of the created alert"
-}
+} */
 
 output "display_name" {
   value       = google_monitoring_alert_policy.alert_policy.display_name
