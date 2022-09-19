@@ -1,36 +1,51 @@
- ## **Cloud DNS Module**
-This module makes it easy to create Google Cloud DNS zones of different types, 
-and manage their records. It supports creating public, private, forwarding, and peering zones.
+## **Google-cloud-router**
+
+
+This module handles opinionated Google Cloud Platform routing.
 
 
 
-## **Usage**
+## Usage
+
+
+```hcl
+module "cloud_router" {
+  source  = "terraform-google-modules/cloud-router/google"
+  version = "~> 0.4"
+
+
+
+ name    = "example-router"
+  project = "<PROJECT ID>"
+  region  = "us-central1"
+  network = "default"
+}
+```
 
 
 ## **Inputs**
 
+
+
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-|default_key_specs_key | Object containing default key signing specifications| any | {} |no
-|default_key_specs_zone | Object containing default zone signing specifications | any |	{} | no
-|dnssec_config | Object containing   kind, non_existence, state. |	any |	{}	|no
-|domain |	Zone domain, must end with a period.|	string	|n/a	|yes
-|force_destroy |	Set this true to delete all records in the zone.| bool |	false |no
-|labels |	A set of key/value label pairs to assign to this ManagedZone |	map(any) |	{} |	no
-|name | Zone name, must be unique within the project.|	string |	n/a	| yes
-|private_visibility_config_networks |	List of VPC self links that can see this zone.	| list(string) |[] | no
-|project_id |	Project id for the zone. |	string | n/a |yes
-target_name_server_addresses | 	List of target name servers for forwarding zone.|	list(map(any)) |	[]	| no
-target_network |	Peering network. |string |	"" | no
+| bgp | BGP information specific to this router. | `any` | `null` | no |
+| description | An optional description of this resource | `string` | `null` | no |
+| name | Name of the router | `string` | n/a | yes |
+| nats | NATs to deploy on this router. | `any` | `[]` | no |
+| network | A reference to the network to which this router belongs | `string` | n/a | yes |
+| project | The project ID to deploy to | `string` | n/a | yes |
+| region | Region where the router resides | `string` | n/a | yes |
+
 
 
 ## **Outputs**
 
-| Name | Description |
+
+
+| **Name** | **Description** |
 |------|-------------|
-|domain |	The DNS zone domain.
-|name |	The DNS zone name.
-|name_servers |The DNS zone name servers.
-|type |	The DNS zone type.
+| router | The created router |
+
 
 
