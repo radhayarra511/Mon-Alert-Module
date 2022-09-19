@@ -20,14 +20,6 @@ and manage their records. It supports creating public, private, forwarding, and 
 |name | Zone name, must be unique within the project.|	string |	n/a	| yes
 |private_visibility_config_networks |	List of VPC self links that can see this zone.	| list(string) |[] | no
 |project_id |	Project id for the zone. |	string | n/a |yes
-|recordsets |	List of DNS record objects to manage, in the standard terraform dns structure.
-| list(object({
-    name    = string
-    type    = string
-    ttl     = number
-    records = list(string)
-  }))  |  [] |	no
-
 target_name_server_addresses | 	List of target name servers for forwarding zone.|	list(map(any)) |	[]	| no
 target_network |	Peering network. |string |	"" | no
 
