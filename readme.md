@@ -1,4 +1,4 @@
-## **Monitoring-Alert Module
+## **Monitoring-Alert Module**
 
 A Terraform module that helps setting up Monitoring in GCP.
 
@@ -6,9 +6,8 @@ A Terraform module that helps setting up Monitoring in GCP.
 
 ## **Usage**
 
-Example folder covers how to create Monitoring Alert policies.
-The simplest config to get Alert policies created and added notifications:
 
+```hcl
 module "Monitoring-Module" {
 source = ""
   
@@ -31,7 +30,9 @@ source = ""
     }
   }
   }
-} 
+}
+
+```
 
 ## Inputs
 
